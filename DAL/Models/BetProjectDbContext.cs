@@ -16,12 +16,11 @@ namespace DAL.Models
         {
         }
 
-        public DbSet<TestCodeFirstModel> TestsFirstModels { get; set; }
-        //public DbSet<Market> Markets { get; set; }
-        //public DbSet<MarketUser> MarketUsers { get; set; }
-        //public DbSet<MarketUserIntegration> MarketUserIntegrations { get; set; }
-        //public DbSet<IntegrationDetail> IntegrationDetails { get; set; }
-        //public DbSet<Integration> Integrations { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<League> Leagues { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Player> Players { get; set; }
 
         public static ApplicationDbContext Create()
         {

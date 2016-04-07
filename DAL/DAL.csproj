@@ -70,6 +70,18 @@
     <Compile Include="Configuration\MySqlConfiguration.cs" />
     <Compile Include="Configuration\MySqlHistoryContext.cs" />
     <Compile Include="Configuration\MySqlInitializer.cs" />
+    <Compile Include="Migrations\201604072140278_AddInitialModels.cs" />
+    <Compile Include="Migrations\201604072140278_AddInitialModels.Designer.cs">
+      <DependentUpon>201604072140278_AddInitialModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604072154436_AddSeeds.cs" />
+    <Compile Include="Migrations\201604072154436_AddSeeds.Designer.cs">
+      <DependentUpon>201604072154436_AddSeeds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604072220569_seed.cs" />
+    <Compile Include="Migrations\201604072220569_seed.Designer.cs">
+      <DependentUpon>201604072220569_seed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\BetProjectDbContext.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Team.cs" />
@@ -78,13 +90,9 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\TestCodeFirstModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -96,6 +104,17 @@
       <Project>{25ee1727-06be-4e4d-9cf4-ae673a1ddf20}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201604072140278_AddInitialModels.resx">
+      <DependentUpon>201604072140278_AddInitialModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604072154436_AddSeeds.resx">
+      <DependentUpon>201604072154436_AddSeeds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604072220569_seed.resx">
+      <DependentUpon>201604072220569_seed.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

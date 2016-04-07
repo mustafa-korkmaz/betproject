@@ -1,4 +1,4 @@
-using System.Data.Entity.Migrations;
+﻿using System.Data.Entity.Migrations;
 using DAL.Models;
 
 namespace DAL.Migrations
@@ -11,50 +11,49 @@ namespace DAL.Migrations
             SetSqlGenerator("MySql.Data.MySqlClient", new MySql.Data.Entity.MySqlMigrationSqlGenerator());
         }
 
+        /// <summary>
+        ///  This method will be called after migrating to the latest version.
+        /// </summary>
+        /// <param name="context">bet project db context</param>
         protected override void Seed(ApplicationDbContext context)
         {
-            context.TestsFirstModels.AddOrUpdate(
-              p => new { p.Name, p.URL },
-              new TestCodeFirstModel { Name = "t1", URL = "url1" },
-              new TestCodeFirstModel { Name = "t2k", URL = "url2" }
+            //You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //to avoid creating duplicate seed data.
+
+            context.Countries.AddOrUpdate(
+              p => new { p.Name, p.Desc },
+              new Country { Name = "ABD", Desc = "ABD y ait tüm ligler" },
+              new Country { Name = "Türkiye", Desc = "TR ye  ait tüm ligler" }
             );
 
-            //  This method will be called after migrating to the latest version.
+            context.Categories.AddOrUpdate(
+            p => new { p.Name, p.Desc },
+            new Category { Name = "Spor", Desc = "Tüm Sporlar" },
+            new Category { Name = "Basketbol", Desc = "Basketbol", ParentId = 1 }
+          );
 
-            //You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //to avoid creating duplicate seed data. E.g.
+            context.Leagues.AddOrUpdate(
+               p => new { p.Name, p.Desc, p.CategoryId, p.Country },
+               new League { Name = "NBA", Desc = "ABD Ulusal basketbol ligi", CategoryId = 2, CountryId = 1 },
+               new League { Name = "TBL Erkekler", Desc = "Türkiye Erkekler Basketbol Ligi", CategoryId = 2, CountryId = 2 }
+             );
 
-            //context.Markets.AddOrUpdate(
-            //  p => p.Name,
-            //  new Market { Name = "N11.com" },
-            //  new Market { Name = "GittiGidiyor.com" },
-            //  new Market { Name = "Hepsiburada.com" }
-            //);
+            context.Teams.AddOrUpdate(
+            p => new { p.Name, p.Desc, p.LeagueId },
+            new Team { Name = "Cleveland Cavaliers", Desc = " Cleveland Cavaliers basketbol takımı", LeagueId = 1 },
+            new Team { Name = "Fenerbahçe Ülker", Desc = "FB basketbol takımı", LeagueId = 2 }
+          );
 
-            //context.MarketUsers.AddOrUpdate(
-            // p => new { p.Name, p.MarketId, p.LoginName, p.Token },
-            // new MarketUser { Name = "N11-testUser", MarketId = 1, LoginName = "N11-testUser-loginName", Token = "N11-testUser-token" },
-            // new MarketUser { Name = "N11-testUser-1", MarketId = 1, LoginName = "N11-testUser-1-loginName", Token = "N11-testUser-1-token" },
-            // new MarketUser { Name = "GG-testUser", MarketId = 2, LoginName = "GG-testUser-loginName", Token = "GG-testUser-token" }
-            //);
-
-            //context.Integrations.AddOrUpdate(
-            //  p => new { p.Name, p.Type },
-            //  new Integration { Name = "harun-kirkikoglu", Type = IntegrationType.Opencart },
-            //  new Integration { Name = "local", Type = IntegrationType.Opencart }
-            //);
-
-            //context.MarketUserIntegrations.AddOrUpdate(
-            // p => new { p.Desc, p.IntegrationId, p.MarketUserId },
-            // new MarketUserIntegration { Desc = "harunk.com sitesine ait n11 entegrasyonu", IntegrationId = 1, MarketUserId = 1 },
-            // new MarketUserIntegration { Desc = "harunk.com sitesine ait gg entegrasyonu", IntegrationId = 1, MarketUserId = 3 }
-            //);
-
-            //context.IntegrationDetails.AddOrUpdate(
-            //  p => new { p.IntegrationId, p.Url, p.ExportType },
-            //  new IntegrationDetail { IntegrationId = 1, Url = "http://localhost:8080/opencart/index.php?route=export/product", ExportType = ExportType.Product },
-            //  new IntegrationDetail { IntegrationId = 1, Url = "http://localhost:8080/opencart/index.php?route=export/category", ExportType = ExportType.Category }
-            //  );
+            context.Players.AddOrUpdate(
+             p => new { p.Name, p.TeamId },
+                 new Player { Name = "LeBron James", TeamId = 1 },
+                 new Player { Name = "Kyrie Irving", TeamId = 1 },
+                 new Player { Name = "Kevin Love", TeamId = 1 },
+                 new Player { Name = "Barış Hersek", TeamId = 2 },
+                 new Player { Name = "Bogdan Bogdanovic", TeamId = 2 },
+                 new Player { Name = "Boby Dixon", TeamId = 2 },
+                 new Player { Name = "Jan Vesely", TeamId = 2 }
+            );
 
         }
     }

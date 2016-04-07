@@ -5,11 +5,7 @@ namespace Common.Helper
 {
     public class IntegrationKey
     {
-        private static IntegrationKey _instance;
-
-        private IntegrationKey() { }
-
-        public static IntegrationKey Instance => _instance ?? new IntegrationKey();
+        public static IntegrationKey Instance { get; } = new IntegrationKey();
 
         public string GetHashValue(string source)
         {
