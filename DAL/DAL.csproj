@@ -70,11 +70,12 @@
     <Compile Include="Configuration\MySqlConfiguration.cs" />
     <Compile Include="Configuration\MySqlHistoryContext.cs" />
     <Compile Include="Configuration\MySqlInitializer.cs" />
-    <Compile Include="Migrations\201604052040485_tst.cs" />
-    <Compile Include="Migrations\201604052040485_tst.Designer.cs">
-      <DependentUpon>201604052040485_tst.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\BetProjectDbContext.cs" />
+    <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\Team.cs" />
+    <Compile Include="Models\League.cs" />
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\TestCodeFirstModel.cs" />
@@ -85,11 +86,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201604052040485_tst.resx">
-      <DependentUpon>201604052040485_tst.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
