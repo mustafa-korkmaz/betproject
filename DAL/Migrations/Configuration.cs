@@ -20,6 +20,12 @@ namespace DAL.Migrations
             //You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //to avoid creating duplicate seed data.
 
+            context.BetSites.AddOrUpdate(
+           p => new { p.Name, p.Desc, p.MainUrl },
+           new BetSite { Name = "Rivalo", Desc = "Rivalo.com", MainUrl = "https://www.rivalo.com" },
+            new BetSite { Name = "Tempobet", Desc = "Tempobet.com", MainUrl = "https://www.tempobet.com" }
+         );
+
             context.Countries.AddOrUpdate(
               p => new { p.Name, p.Desc },
               new Country { Name = "ABD", Desc = "ABD y ait tüm ligler" },

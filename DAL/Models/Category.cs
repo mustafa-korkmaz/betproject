@@ -5,7 +5,7 @@ using Common.Enumerations;
 namespace DAL.Models
 {
     /// <summary>
-    /// db entity =>  dbo.category
+    /// db entity =>  dbo.categories
     /// </summary>
     public class Category
     {

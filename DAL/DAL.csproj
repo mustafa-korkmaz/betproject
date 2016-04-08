@@ -82,7 +82,12 @@
     <Compile Include="Migrations\201604072220569_seed.Designer.cs">
       <DependentUpon>201604072220569_seed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604081604499_addbetsite.cs" />
+    <Compile Include="Migrations\201604081604499_addbetsite.Designer.cs">
+      <DependentUpon>201604081604499_addbetsite.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\BetProjectDbContext.cs" />
+    <Compile Include="Models\BetSite.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\League.cs" />
@@ -114,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604072220569_seed.resx">
       <DependentUpon>201604072220569_seed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604081604499_addbetsite.resx">
+      <DependentUpon>201604081604499_addbetsite.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

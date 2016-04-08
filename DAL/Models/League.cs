@@ -5,7 +5,7 @@ using Common.Enumerations;
 namespace DAL.Models
 {
     /// <summary>
-    /// db entity =>  dbo.league
+    /// db entity =>  dbo.leagues
     /// </summary>
     public class League
     {

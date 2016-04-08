@@ -4,7 +4,7 @@ using Common.Enumerations;
 namespace DAL.Models
 {
     /// <summary>
-    /// db entity =>  dbo.team
+    /// db entity =>  dbo.teams
     /// </summary>
     public class Team
     {
