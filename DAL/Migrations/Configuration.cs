@@ -1,4 +1,5 @@
-﻿using System.Data.Entity.Migrations;
+﻿using System;
+using System.Data.Entity.Migrations;
 using DAL.Models;
 
 namespace DAL.Migrations
@@ -39,7 +40,7 @@ namespace DAL.Migrations
           );
 
             context.Leagues.AddOrUpdate(
-               p => new { p.Name, p.Desc, p.CategoryId, p.Country },
+               p => new { p.Name, p.Desc, p.CategoryId, p.CountryId },
                new League { Name = "NBA", Desc = "ABD Ulusal basketbol ligi", CategoryId = 2, CountryId = 1 },
                new League { Name = "TBL Erkekler", Desc = "Türkiye Erkekler Basketbol Ligi", CategoryId = 2, CountryId = 2 }
              );
@@ -49,6 +50,17 @@ namespace DAL.Migrations
             new Team { Name = "Cleveland Cavaliers", Desc = " Cleveland Cavaliers basketbol takımı", LeagueId = 1 },
             new Team { Name = "Fenerbahçe Ülker", Desc = "FB basketbol takımı", LeagueId = 2 }
           );
+
+            context.BetSiteLinks.AddOrUpdate(
+             p => new { p.BetSiteId, p.CategoryId, p.CountryId, p.Url },
+             new BetSiteLink { BetSiteId = 1, CategoryId = 2, CountryId = 1, Url = "/en/sportsbook/basketball-usa/gbfcab/" },
+             new BetSiteLink { BetSiteId = 1, CategoryId = 2, CountryId = 2, Url = "/en/sportsbook/basketball-turkey/gbbccab/" }
+           );
+
+            context.Events.AddOrUpdate(
+               p => new { p.HomeTeamId, p.AwayTeamId, p.StartDateTime },
+               new Event { HomeTeamId = 1, AwayTeamId = 2, StartDateTime = DateTime.Now }
+             );
 
             context.Players.AddOrUpdate(
              p => new { p.Name, p.TeamId },

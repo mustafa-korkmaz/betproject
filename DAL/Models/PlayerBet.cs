@@ -8,8 +8,8 @@ namespace DAL.Models
         public int PlayerId { get; set; } // foreign key 
         public virtual Player Player { get; set; } // navigation property
 
-        public int BetId { get; set; } // foreign key 
-        public virtual Bet Bet { get; set; } // navigation property
+        public int BetSiteEventId { get; set; } // foreign key 
+        public virtual BetSiteEvent BetSiteEvent { get; set; } // navigation property
 
         public int ThresholdScore { get; set; }
     }

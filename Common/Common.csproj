@@ -45,6 +45,7 @@
     <Compile Include="Enumerations\Enumerations.cs" />
     <Compile Include="Helper\ExtensionMethods.cs" />
     <Compile Include="Helper\IntegrationKey.cs" />
+    <Compile Include="Helper\Statics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Response\BaseResponse.cs" />
     <Compile Include="Response\WebClientResponse.cs" />

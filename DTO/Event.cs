@@ -15,7 +15,7 @@ namespace DTO
 
         public DateTime StartDateTime { get; set; }
 
-        public virtual ICollection<Bet> Bets { get; set; } // 1=>n relation
+        public virtual ICollection<BetSiteEvent> BetSiteEvents { get; set; } // 1=>n relation
 
     }
 }

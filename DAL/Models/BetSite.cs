@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Common.Enumerations;
 
 namespace DAL.Models
@@ -28,6 +29,10 @@ namespace DAL.Models
 
         [Required]
         public Status Status { get; set; }
+
+        public virtual ICollection<BetSiteEvent> BetSiteEvents { get; set; } // 1=>n relation
+
+        public virtual ICollection<BetSiteLink> BetSiteLinks { get; set; } // 1=>n relation
 
     }
 }

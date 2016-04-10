@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -70,34 +74,14 @@
     <Compile Include="Configuration\MySqlConfiguration.cs" />
     <Compile Include="Configuration\MySqlHistoryContext.cs" />
     <Compile Include="Configuration\MySqlInitializer.cs" />
-    <Compile Include="Migrations\201604072140278_AddInitialModels.cs" />
-    <Compile Include="Migrations\201604072140278_AddInitialModels.Designer.cs">
-      <DependentUpon>201604072140278_AddInitialModels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604072154436_AddSeeds.cs" />
-    <Compile Include="Migrations\201604072154436_AddSeeds.Designer.cs">
-      <DependentUpon>201604072154436_AddSeeds.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604072220569_seed.cs" />
-    <Compile Include="Migrations\201604072220569_seed.Designer.cs">
-      <DependentUpon>201604072220569_seed.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604081604499_addbetsite.cs" />
-    <Compile Include="Migrations\201604081604499_addbetsite.Designer.cs">
-      <DependentUpon>201604081604499_addbetsite.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604100714007_bettingDtos.cs" />
-    <Compile Include="Migrations\201604100714007_bettingDtos.Designer.cs">
-      <DependentUpon>201604100714007_bettingDtos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604100731319_Statics.cs" />
-    <Compile Include="Migrations\201604100731319_Statics.Designer.cs">
-      <DependentUpon>201604100731319_Statics.cs</DependentUpon>
-    </Compile>
+    <Compile Include="DataAccess\BotStaticsDataAccess.cs" />
+    <Compile Include="DataAccess\BetSiteDataAccess.cs" />
+    <Compile Include="DtoMapper.cs" />
+    <Compile Include="Models\BetSiteLink.cs" />
     <Compile Include="Models\BotStatics.cs" />
+    <Compile Include="Models\BetSiteEvent.cs" />
     <Compile Include="Models\PlayerBet.cs" />
     <Compile Include="Models\Event.cs" />
-    <Compile Include="Models\Bet.cs" />
     <Compile Include="Models\BetProjectDbContext.cs" />
     <Compile Include="Models\BetSite.cs" />
     <Compile Include="Models\Player.cs" />
@@ -121,26 +105,6 @@
       <Project>{25ee1727-06be-4e4d-9cf4-ae673a1ddf20}</Project>
       <Name>DTO</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201604072140278_AddInitialModels.resx">
-      <DependentUpon>201604072140278_AddInitialModels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604072154436_AddSeeds.resx">
-      <DependentUpon>201604072154436_AddSeeds.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604072220569_seed.resx">
-      <DependentUpon>201604072220569_seed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604081604499_addbetsite.resx">
-      <DependentUpon>201604081604499_addbetsite.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604100714007_bettingDtos.resx">
-      <DependentUpon>201604100714007_bettingDtos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604100731319_Statics.resx">
-      <DependentUpon>201604100731319_Statics.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

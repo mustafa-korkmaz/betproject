@@ -45,12 +45,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Parsers\IBetSite.cs" />
+    <Compile Include="Client\Logger.cs" />
+    <Compile Include="Parsers\IBetSiteParser.cs" />
     <Compile Include="Parsers\RequestParser.cs" />
     <Compile Include="ContextCreator.cs" />
     <Compile Include="Parsers\BetSiteParser.cs" />
     <Compile Include="Client\WebClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tester\IBetSiteTester.cs" />
+    <Compile Include="Tester\BetSiteTester.cs" />
+    <Compile Include="Tester\RivaloTester.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

@@ -42,12 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BetSite.cs" />
+    <Compile Include="BetSiteLink.cs" />
+    <Compile Include="BetSiteEvent.cs" />
     <Compile Include="BotStatics.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Country.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="League.cs" />
-    <Compile Include="Bet.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerBet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
