@@ -46,6 +46,9 @@
     <Compile Include="Helper\ExtensionMethods.cs" />
     <Compile Include="Helper\IntegrationKey.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Response\BaseResponse.cs" />
+    <Compile Include="Response\WebClientResponse.cs" />
+    <Compile Include="Response\BusinessResponse.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

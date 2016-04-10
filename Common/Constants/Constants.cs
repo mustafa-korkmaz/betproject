@@ -20,7 +20,7 @@
         public static string IntegrationKeyHash = Helper.IntegrationKey.Instance.GetHashValue(IntegrationKeyValue);
     }
 
-    public static class ErrorMessages
+    public static class ErrorMessage
     {
         public const string IntegrationKeyError = "Application Integration key error.";
         public const string ApplicationExceptionMessage = "Something went wrong, please try again later.";
@@ -30,5 +30,16 @@
     {
         public const string IntegrationNotFound = "Integration not found";
         public const string ExportTypeNotFound = "Export type not found";
+    }
+
+    public static class ContentTpye
+    {
+        public const string FormUrlencoded = "application/x-www-form-urlencoded";
+    }
+    public static class WebMethod
+    {
+        public const string Get = "Get";
+        public const string Post = "Post";
+        public const string Put = "Put";
     }
 }

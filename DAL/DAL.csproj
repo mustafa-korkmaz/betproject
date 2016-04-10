@@ -86,6 +86,18 @@
     <Compile Include="Migrations\201604081604499_addbetsite.Designer.cs">
       <DependentUpon>201604081604499_addbetsite.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604100714007_bettingDtos.cs" />
+    <Compile Include="Migrations\201604100714007_bettingDtos.Designer.cs">
+      <DependentUpon>201604100714007_bettingDtos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604100731319_Statics.cs" />
+    <Compile Include="Migrations\201604100731319_Statics.Designer.cs">
+      <DependentUpon>201604100731319_Statics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BotStatics.cs" />
+    <Compile Include="Models\PlayerBet.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\Bet.cs" />
     <Compile Include="Models\BetProjectDbContext.cs" />
     <Compile Include="Models\BetSite.cs" />
     <Compile Include="Models\Player.cs" />
@@ -122,6 +134,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604081604499_addbetsite.resx">
       <DependentUpon>201604081604499_addbetsite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604100714007_bettingDtos.resx">
+      <DependentUpon>201604100714007_bettingDtos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604100731319_Statics.resx">
+      <DependentUpon>201604100731319_Statics.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

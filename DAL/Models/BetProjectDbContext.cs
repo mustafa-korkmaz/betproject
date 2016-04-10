@@ -22,6 +22,10 @@ namespace DAL.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<Player> Players { get; set; }
         public DbSet<BetSite> BetSites { get; set; }
+        public DbSet<Bet> Bets { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<PlayerBet> PlayerBets { get; set; }
+        public DbSet<BotStatics> BotStatics { get; set; }
 
         public static ApplicationDbContext Create()
         {

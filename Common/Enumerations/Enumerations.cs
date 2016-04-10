@@ -60,4 +60,25 @@
         Info,
         NoEffect
     }
+
+    public enum WebMethodType
+    {
+        Null,
+        Get,
+        Post,
+        Put,
+        Info,
+        NoEffect
+    }
+
+    public enum ContentType
+    {
+        Null,
+        FormUrlencoded
+    }
+
+    public enum BettingType
+    {
+        Player
+    }
 }
