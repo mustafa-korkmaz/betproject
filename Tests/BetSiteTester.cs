@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Business.WebApi.Tester
+﻿namespace Tests
 {
     public class BetSiteTester
     {

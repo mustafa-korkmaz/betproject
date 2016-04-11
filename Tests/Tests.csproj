@@ -4,16 +4,18 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D7527D50-C5EC-4174-BCD5-FD85D8EF75BF}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{41D77B6C-A811-492C-8897-BB377E50D3F4}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Business.WebApi</RootNamespace>
-    <AssemblyName>Business.WebApi</AssemblyName>
+    <RootNamespace>Tests</RootNamespace>
+    <AssemblyName>Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +25,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,10 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AngleSharp, Version=0.9.5.41771, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
-      <HintPath>..\packages\AngleSharp.0.9.5\lib\net45\AngleSharp.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,15 +44,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client\Logger.cs" />
-    <Compile Include="Parsers\IBetSiteParser.cs" />
-    <Compile Include="Parsers\RequestParser.cs" />
-    <Compile Include="ContextCreator.cs" />
-    <Compile Include="Parsers\BetSiteParser.cs" />
-    <Compile Include="Client\WebClient.cs" />
+    <Compile Include="BetSiteTester.cs" />
+    <Compile Include="IBetSiteTester.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RivaloTester.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business.WebApi\Business.WebApi.csproj">
+      <Project>{d7527d50-c5ec-4174-bcd5-fd85d8ef75bf}</Project>
+      <Name>Business.WebApi</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{0eec48b8-aa11-40d6-876a-d18fc95d1d2a}</Project>
       <Name>Common</Name>
@@ -66,10 +70,6 @@
       <Project>{25ee1727-06be-4e4d-9cf4-ae673a1ddf20}</Project>
       <Name>DTO</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-    <Compile Include="Parsers\RivaloParser.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

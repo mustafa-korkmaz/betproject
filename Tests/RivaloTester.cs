@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Business.WebApi.Parsers;
-using Common.Enumerations;
-using DTO;
 using DAL.DataAccess;
+using DTO;
 
-namespace Business.WebApi.Tester
+namespace Tests
 {
     public class RivaloTester : BetSiteTester, IBetSiteTester
     {
@@ -34,7 +32,7 @@ namespace Business.WebApi.Tester
         /// <summary>
         ///  start testing operations for rivalo
         /// </summary>
-        public async Task StartTesting()
+        public async void StartTesting()
         {
             var rivaloLinks = GetBetSiteLinks();
 
