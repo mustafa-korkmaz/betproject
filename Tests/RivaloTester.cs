@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Business.WebApi.Parsers;
 using DAL.DataAccess;
@@ -43,10 +44,14 @@ namespace Tests
 
                 var events = GetAllEvents(completeUrl);
 
+                Console.WriteLine($"all events has been taken from url: {completeUrl} ");
+
                 foreach (var betSiteEvent in events)
                 {
                     // get event bets
                     var playerBets = await _parser.GetPlayerBets(betSiteEvent.BetSiteEventIdentifier);
+
+                    Console.WriteLine($"all bets has been taken from event id: {betSiteEvent.BetSiteEventIdentifier} ");
 
                     // save event and player bets
                     _dataAccess.InsertBetSiteEvent(betSiteEvent);

@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Tests
 {
@@ -12,13 +7,19 @@ namespace Tests
     {
         static void Main(string[] args)
         {
-            var rivaloTester=new RivaloTester();
+            var rivaloTester = new RivaloTester();
 
-            rivaloTester.StartTesting();
+            int testIndex = 0;
 
-            Console.WriteLine("Test Started..");
+            while (true)
+            {
+                Console.WriteLine($"Test {++testIndex} started..");
 
-            Thread.Sleep(3000); // wait 3 seconds
+                rivaloTester.StartTesting();
+
+                Thread.Sleep(300000); // wait 5 mins
+
+            }
         }
     }
 }
