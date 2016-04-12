@@ -39,6 +39,9 @@ namespace Business.WebApi.Client
             if (clientResponse.HttpStatusCode != HttpStatusCode.OK)
             {
                 clientResponse.ResponseCode = ResponseCode.Fail;
+
+                LogRequestAndResponse("Bot web exception!", (int)clientResponse.HttpStatusCode);
+
                 return clientResponse; // log response
             }
 
@@ -103,7 +106,20 @@ namespace Business.WebApi.Client
         private WebResponse GetResponseFromRequest(string requestUrl)
         {
             var req = WebRequest.Create(requestUrl);
-            return req.GetResponse();
+
+            try
+            {
+                return req.GetResponse();
+            }
+            catch (WebException ex)
+            {
+                var response = ex.Response as HttpWebResponse;
+                if (response != null)
+                {
+                    Console.WriteLine("Bot got an error with HTTP Status Code: " + (int)response.StatusCode);
+                }
+                return response;
+            }
         }
 
         private WebResponse GetResponseFromRequest(string requestUrl, RequestOptions requestOptions)
@@ -135,27 +151,40 @@ namespace Business.WebApi.Client
 
         public async Task<WebClientResponse<string>> PostAsync(Uri url, Dictionary<string, string> requestDic)
         {
+            string responseData = string.Empty;
+            HttpStatusCode statusCode = HttpStatusCode.OK;
+
             using (HttpClient client = new HttpClient())
             {
                 var content = new FormUrlEncodedContent(requestDic);
 
-                string responseData = string.Empty;
-
-                // Get Token
-                using (var response = await client.PostAsync(url, content))
+                try
                 {
-                    if (response.StatusCode == HttpStatusCode.OK)
+                    using (var response = await client.PostAsync(url, content))
                     {
-                        responseData = await response.Content.ReadAsStringAsync();
+                        if (response.StatusCode == HttpStatusCode.OK)
+                        {
+                            responseData = await response.Content.ReadAsStringAsync();
+                            statusCode = response.StatusCode;
+                        }
+
                     }
-
-                    // log req & resp
-                    LogRequestAndResponse(responseData, (int)response.StatusCode);
-
-                    return new WebClientResponse<string> { HttpStatusCode = response.StatusCode, ResponseData = responseData };
                 }
+                catch (WebException ex)
+                {
+                    var response = ex.Response as HttpWebResponse;
+                    if (response != null)
+                    {
+                        Console.WriteLine("Bot got an error with HTTP Status Code: " + (int)response.StatusCode);
+                        statusCode = response.StatusCode;
+                        responseData = ex.Message;
+                    }
+                }
+                // log req & resp
+                LogRequestAndResponse(responseData, (int)statusCode);
             }
 
+            return new WebClientResponse<string> { HttpStatusCode = statusCode, ResponseData = responseData };
         }
 
         //public async Task<WebClientResponse<string>> GetAsync<TReq>(Uri url, TReq requestObject)
