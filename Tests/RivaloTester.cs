@@ -44,6 +44,11 @@ namespace Tests
 
                 var events = GetAllEvents(completeUrl);
 
+                if (events == null)  // we got web exception sometihng went wrong
+                {
+                    return;
+                }
+
                 Console.WriteLine($"all events has been taken from url: {completeUrl} ");
 
                 foreach (var betSiteEvent in events)
