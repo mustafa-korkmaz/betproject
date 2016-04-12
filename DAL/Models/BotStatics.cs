@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace DAL.Models
 {
@@ -12,6 +13,9 @@ namespace DAL.Models
 
         public int BetSiteId { get; set; } // foreign key 
         public virtual BetSite BetSite { get; set; } // navigation property
+
+        [MaxLength(2048)]
+        public string RequestUrl { get; set; }
 
         public int ResponseCode { get; set; } // http status response  code
 

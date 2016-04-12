@@ -40,7 +40,7 @@ namespace Business.WebApi.Client
             {
                 clientResponse.ResponseCode = ResponseCode.Fail;
 
-                LogRequestAndResponse("Bot web exception!", (int)clientResponse.HttpStatusCode);
+                LogRequestAndResponse(requestUrl, "Bot web exception!", (int)clientResponse.HttpStatusCode);
 
                 return clientResponse; // log response
             }
@@ -60,7 +60,7 @@ namespace Business.WebApi.Client
 
             webResponse.Close();
 
-            LogRequestAndResponse(clientResponse.ResponseData, (int)clientResponse.HttpStatusCode);
+            LogRequestAndResponse(requestUrl, clientResponse.ResponseData, (int)clientResponse.HttpStatusCode);
 
             return clientResponse;
         }
@@ -181,7 +181,7 @@ namespace Business.WebApi.Client
                     }
                 }
                 // log req & resp
-                LogRequestAndResponse(responseData, (int)statusCode);
+                LogRequestAndResponse(url.AbsoluteUri, responseData, (int)statusCode);
             }
 
             return new WebClientResponse<string> { HttpStatusCode = statusCode, ResponseData = responseData };
@@ -213,12 +213,13 @@ namespace Business.WebApi.Client
 
         //}
 
-        private void LogRequestAndResponse(string responseData, int statusCode)
+        private void LogRequestAndResponse(string requestUrl, string responseData, int statusCode)
         {
             var statics = new BotStatics
             {
                 BetSiteId = BetSiteId,
                 CreatedAt = DateTime.Now,
+                RequestUrl = requestUrl,
                 ResponseText = responseData,
                 ResponseCode = statusCode
             };

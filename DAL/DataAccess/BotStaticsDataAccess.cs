@@ -15,8 +15,8 @@ namespace DAL.DataAccess
             var entity = MappingConfigurator.Mapper.Map<Models.BotStatics>(statics);
 
             _db.BotStatics.Add(entity);
-            //_db.SaveChangesAsync();
-            _db.SaveChanges();
+            _db.SaveChangesAsync();
+
         }
     }
 }
