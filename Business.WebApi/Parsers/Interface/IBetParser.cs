@@ -1,13 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using DTO;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using DTO;
 
 namespace Business.WebApi.Parsers
 {
-    public interface IBetSiteParser
+    interface IBetParser
     {
-        IEnumerable<BetSiteEvent> GetBetSiteEvents(string url);
-
         Task<IEnumerable<PlayerBet>> GetPlayerBets(string betSiteEventIdentifier);
     }
 }

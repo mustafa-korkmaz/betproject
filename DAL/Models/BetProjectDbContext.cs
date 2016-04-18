@@ -27,6 +27,8 @@ namespace DAL.Models
         public DbSet<BotStatics> BotStatics { get; set; }
         public DbSet<BetSiteEvent> BetSiteEvents { get; set; }
         public DbSet<BetSiteLink> BetSiteLinks { get; set; }
+        public DbSet<BetSitePlayer> BetSitePlayers { get; set; }
+        public DbSet<BetSiteTeam> BetSiteTeams { get; set; }
 
         public static ApplicationDbContext Create()
         {

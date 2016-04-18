@@ -19,6 +19,8 @@ namespace DAL.Models
 
         public DateTime StartDateTime { get; set; }
 
+        public DateTime CreatedAt { get; set; }
+
         public virtual ICollection<BetSiteEvent> BetSiteEvents { get; set; } // 1=>n relation
 
     }

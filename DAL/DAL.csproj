@@ -77,9 +77,15 @@
     <Compile Include="DataAccess\BotStaticsDataAccess.cs" />
     <Compile Include="DataAccess\BetSiteDataAccess.cs" />
     <Compile Include="DtoMapper.cs" />
+    <Compile Include="Migrations\201604181724543_seed.cs" />
+    <Compile Include="Migrations\201604181724543_seed.Designer.cs">
+      <DependentUpon>201604181724543_seed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\BetSiteLink.cs" />
+    <Compile Include="Models\BetSiteTeam.cs" />
     <Compile Include="Models\BotStatics.cs" />
     <Compile Include="Models\BetSiteEvent.cs" />
+    <Compile Include="Models\BetSitePlayer.cs" />
     <Compile Include="Models\PlayerBet.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\BetProjectDbContext.cs" />
@@ -105,6 +111,11 @@
       <Project>{25ee1727-06be-4e4d-9cf4-ae673a1ddf20}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201604181724543_seed.resx">
+      <DependentUpon>201604181724543_seed.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -45,8 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseBetSite.cs" />
     <Compile Include="Client\Logger.cs" />
-    <Compile Include="Parsers\IBetSiteParser.cs" />
+    <Compile Include="Parsers\IOddsParser.cs" />
+    <Compile Include="Parsers\IBetParser.cs" />
+    <Compile Include="Parsers\IEventParser.cs" />
     <Compile Include="Parsers\RequestParser.cs" />
     <Compile Include="ContextCreator.cs" />
     <Compile Include="Parsers\BetSiteParser.cs" />

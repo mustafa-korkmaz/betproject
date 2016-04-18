@@ -53,8 +53,8 @@ namespace DAL.Migrations
 
             context.BetSiteLinks.AddOrUpdate(
              p => new { p.BetSiteId, p.CategoryId, p.CountryId, p.Url },
-             new BetSiteLink { BetSiteId = 1, CategoryId = 2, CountryId = 1, Url = "/en/sportsbook/basketball-usa/gbfcab/" },
-             new BetSiteLink { BetSiteId = 1, CategoryId = 2, CountryId = 2, Url = "/en/sportsbook/basketball-turkey/gbbccab/" }
+             new BetSiteLink { BetSiteId = 3, CategoryId = 2, CountryId = 1, Url = "/en/sportsbook/basketball-usa/gbfcab/" },
+             new BetSiteLink { BetSiteId = 3, CategoryId = 2, CountryId = 2, Url = "/en/sportsbook/basketball-turkey/gbbccab/" }
            );
 
             context.Events.AddOrUpdate(
