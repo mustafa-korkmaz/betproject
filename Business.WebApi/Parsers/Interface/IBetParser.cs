@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.WebApi.Parsers
+namespace Business.WebApi.Parsers.Interface
 {
     interface IBetParser
     {

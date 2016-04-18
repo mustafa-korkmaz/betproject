@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Business.WebApi.Client;
 using Common.Enumerations;
 using WebClient = Business.WebApi.Client.WebClient;
-
+using Business.WebApi.Parsers.Interface;
 
 namespace Business.WebApi.Parsers
 {
