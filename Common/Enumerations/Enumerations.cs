@@ -82,4 +82,10 @@
         All,
         Player
     }
+
+    public enum BetSiteId
+    {
+        Rivalo = 1,
+        TempoBet
+    }
 }

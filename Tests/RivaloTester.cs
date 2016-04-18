@@ -7,7 +7,7 @@ using DTO;
 
 namespace Tests
 {
-    public class RivaloTester : BetSiteTester, IBetSiteTester
+    public class RivaloTester : BetSiteTester
     {
         private readonly RivaloParser _parser;
         private readonly BetSite _rivalo;
@@ -31,15 +31,14 @@ namespace Tests
         }
 
         /// <summary>
-        ///  start testing operations for rivalo
+        ///  update all events for rivalo
         /// </summary>
-        public async void StartTesting()
+        public void UpdateRivaloEvents()
         {
             var rivaloLinks = GetBetSiteLinks();
 
             foreach (var link in rivaloLinks)
             {
-
                 var completeUrl = link.BetSite.MainUrl + link.Url;
 
                 var events = GetAllEvents(completeUrl);
@@ -51,17 +50,17 @@ namespace Tests
 
                 Console.WriteLine($"all events has been taken from url: {completeUrl} ");
 
-                foreach (var betSiteEvent in events)
-                {
-                    // get event bets
-                    var playerBets = await _parser.GetPlayerBets(betSiteEvent.BetSiteEventIdentifier);
-
-                    Console.WriteLine($"all bets has been taken from event id: {betSiteEvent.BetSiteEventIdentifier} ");
-
-                    // save event and player bets
-                    _dataAccess.InsertBetSiteEvent(betSiteEvent);
-                }
+                // update or insert bet site events 
+                _parser.UpdateEvents(events);
             }
+        }
+
+        /// <summary>
+        ///  update all player bets for rivalo
+        /// </summary>
+        public void UpdatePlayerBets()
+        {
+            //_parser.UpdatePlayerBets();
         }
     }
 }

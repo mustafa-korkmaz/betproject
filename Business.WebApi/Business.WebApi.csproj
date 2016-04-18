@@ -52,7 +52,6 @@
     <Compile Include="Parsers\Interface\IOddsParser.cs" />
     <Compile Include="Parsers\RequestParser.cs" />
     <Compile Include="ContextCreator.cs" />
-    <Compile Include="Parsers\BetSiteParser.cs" />
     <Compile Include="Client\WebClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

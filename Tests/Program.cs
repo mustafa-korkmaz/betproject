@@ -15,7 +15,9 @@ namespace Tests
             {
                 Console.WriteLine($"Test {++testIndex} started..");
 
-                rivaloTester.StartTesting();
+                rivaloTester.UpdateRivaloEvents();
+
+                rivaloTester.UpdatePlayerBets();
 
                 Thread.Sleep(300000); // wait 5 mins
 

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using AngleSharp.Parser.Html;
 using Business.WebApi.Client;
 using Common.Enumerations;
 using WebClient = Business.WebApi.Client.WebClient;
@@ -15,14 +16,15 @@ namespace Business.WebApi.Parsers
     /// <summary>
     ///  calss which includes parsing operations for rivalo.com
     /// </summary>
-    public class RivaloParser : IEventParser, IBetParser, IOddsParser
+    public class RivaloParser : BaseBetsite, IEventParser, IBetParser, IOddsParser
     {
-        private readonly BetSiteParser _parser = BetSiteParser.Instance;
+        private readonly HtmlParser _parser;
         private readonly WebClient _client;
         private readonly BetSite _rivalo;
 
         public RivaloParser(BetSite rivalo)
         {
+            _parser = new HtmlParser();
             _client = WebClient.Instance;
             _client.BetSiteId = rivalo.Id;
             _rivalo = rivalo;
@@ -41,7 +43,7 @@ namespace Business.WebApi.Parsers
 
             var document = _parser.Parse(clientRes.ResponseData);
 
-            var eventDivs = _parser.QuerySelectorAll(document, "div[class='socialMediaLinks']");
+            var eventDivs = document.QuerySelectorAll("div[class='socialMediaLinks']");
 
             foreach (var eventdiv in eventDivs)
             {
