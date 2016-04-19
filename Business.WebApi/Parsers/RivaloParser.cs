@@ -16,7 +16,7 @@ namespace Business.WebApi.Parsers
     /// <summary>
     ///  calss which includes parsing operations for rivalo.com
     /// </summary>
-    public class RivaloParser : BaseBetsite, IEventParser, IBetParser, IOddsParser
+    public class RivaloParser : BaseParser, IEventParser, IBetParser, IOddsParser
     {
         private readonly HtmlParser _parser;
         private readonly WebClient _client;
